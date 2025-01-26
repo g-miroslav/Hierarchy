@@ -1,0 +1,20 @@
+// Syntax:  
+// Hierarchy (NodeID, ParentID, NodeName, [ParentName, [ParentSource, [PathName, [PathDelimiter, Depth]]]])(loadstatement | selectstatement) 
+
+BOM_Hierarchy:
+Hierarchy(ComponentID, ProductAssemblyID, ComponentName, AssemblyName, ComponentName, PathName, '\', Depth)
+SQL
+SELECT
+    BillOfMaterialsID
+    , ProductAssemblyID
+    , ComponentID
+    , Product.Name as ComponentName
+    , BOMLevel + 1 as BOMLevel
+    , PerAssemblyQty
+    , UnitMeasureCode
+FROM
+    Production.BillOfMaterials
+    INNER JOIN Production.Product
+        ON BillOfMaterials.ComponentID = Product.ProductID
+WHERE
+    EndDate IS NULL;
