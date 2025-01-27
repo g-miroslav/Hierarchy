@@ -2,7 +2,7 @@
 // Hierarchy (NodeID, ParentID, NodeName, [ParentName, [ParentSource, [PathName, [PathDelimiter, Depth]]]])(loadstatement | selectstatement) 
 
 BOM_Hierarchy:
-Hierarchy(ComponentID, ProductAssemblyID, ComponentName, AssemblyName, ComponentName, PathName, '\', Depth)
+Hierarchy(ComponentID, ProductAssemblyID, ComponentName, AssemblyName, ComponentName, PathName, ' <- ', Depth)
 SQL
 SELECT
     BillOfMaterialsID
