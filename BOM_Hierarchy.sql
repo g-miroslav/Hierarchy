@@ -36,7 +36,7 @@ SELECT
     , t.PerAssemblyQty
     , t.UnitMeasureCode
     , CAST(Recursive_CTE.ComponentName as varchar(50)) as AssemblyName
-    , Recursive_CTE.PathName + '\' + CAST(t.ComponentName as varchar(max)) as PathName
+    , Recursive_CTE.PathName + ' <- ' + CAST(t.ComponentName as varchar(max)) as PathName
     , Recursive_CTE.PathJson + ', "' + CAST(t.ComponentName as varchar(max)) + '"' as PathJson
     , Recursive_CTE.Depth + 1 as Depth
 FROM
